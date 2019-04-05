@@ -3,13 +3,11 @@ from flask import Flask, request
 from pprint import pprint
 from pymessenger import Bot
 
-app = Flask(__name__)
-
-
 Facebook_Access_Token = 'EAACvvGBVPhEBAIpqcxK5NkKZCa2Bmwlrblp01Tora2BFvLqCNhxmYoxoeVYvyiaxIfW05TL4BCPMlxT4QjzDsaUumtHZCcnhvExSoa6y5I6ATmHJJaDPj4b7rZAtPZAbftEA5vgcCKuYj9xzn0twsQUEZBrMybJZCIPFQCdvx60QZDZD'
 
 bot = Bot(Facebook_Access_Token)
 
+app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
