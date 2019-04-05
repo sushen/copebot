@@ -13,8 +13,8 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
     return '''
-    <h1> I am focus</h1>
-    <h1> I am determent to do business with this chatbot </h1>
+    <h2> I am focus</h2>
+    <h1> I am determent to do business with this chatbot. </h1>
     
     ''', 200
 
