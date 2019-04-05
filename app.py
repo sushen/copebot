@@ -1,11 +1,11 @@
 import sys
 from flask import Flask, request
 from pprint import pprint
-from pymessenger import bot
+from pymessenger import Bot
 
 
 Facebook_Access_Token = 'EAACvvGBVPhEBAIpqcxK5NkKZCa2Bmwlrblp01Tora2BFvLqCNhxmYoxoeVYvyiaxIfW05TL4BCPMlxT4QjzDsaUumtHZCcnhvExSoa6y5I6ATmHJJaDPj4b7rZAtPZAbftEA5vgcCKuYj9xzn0twsQUEZBrMybJZCIPFQCdvx60QZDZD'
-bot = ()
+bot = Bot(Facebook_Access_Token)
 
 app = Flask(__name__)
 
@@ -42,8 +42,8 @@ def webhook():
                     else:
                         messaging_text = 'No text'
 
-                message = messaging_text
-                bot.send_text_message(sender_id, message)
+                response = messaging_text
+                bot.send_text_message(sender_id, response)
 
 
 
