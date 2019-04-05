@@ -1,6 +1,11 @@
 import sys
 from flask import Flask, request
 from pprint import pprint
+from pymessenger import bot
+
+
+Facebook_Access_Token = 'EAACvvGBVPhEBAIpqcxK5NkKZCa2Bmwlrblp01Tora2BFvLqCNhxmYoxoeVYvyiaxIfW05TL4BCPMlxT4QjzDsaUumtHZCcnhvExSoa6y5I6ATmHJJaDPj4b7rZAtPZAbftEA5vgcCKuYj9xzn0twsQUEZBrMybJZCIPFQCdvx60QZDZD'
+bot = ()
 
 app = Flask(__name__)
 
@@ -23,6 +28,24 @@ def verify():
 def webhook():
     data = request.get_json()
     log(data)
+
+    if data['oblect'] == ['page']:
+        for entry in data['entry']:
+            for messaging_event in data ['messaging']:
+
+                sender_id = messaging_event['sender']['id']
+                recipient_id = messaging_event['recipient']['id']
+
+                if messaging_event.get('message'):
+                    if 'text' in messaging_event['message']:
+                        messaging_text = messaging_event['message']['text']
+                    else:
+                        messaging_text = 'No text'
+
+                message = messaging_text
+                bot.send_text_message(sender_id, message)
+
+
 
     return "ok", 200
 
