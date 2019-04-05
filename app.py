@@ -52,22 +52,7 @@ def webhook():
                     response = messaging_text
                     bot.send_text_message(sender_id, response)
 
-
-
-                # sender_id = messaging_event['sender']['id']
-                # recipient_id = messaging_event['recipient']['id']
-                #
-                # if messaging_event.get('message'):
-                #     if 'text' in messaging_event['message']:
-                #         messaging_text = messaging_event['message']['text']
-                #     else:
-                #         messaging_text = 'No text'
-                #
-                # response = messaging_text
-                # bot.send_text_message(sender_id, response)
-
-
-    return "ok", 200
+    return"ok", 200
 
 
 def log(message):
