@@ -29,7 +29,7 @@ def webhook():
     data = request.get_json()
     log(data)
 
-    if data['oblect'] == ['page']:
+    if data['object'] == ['page']:
         for entry in data['entry']:
             for messaging_event in data ['messaging']:
 
