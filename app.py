@@ -1,5 +1,6 @@
 import sys
 from flask import Flask, request
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -25,7 +26,7 @@ def webhook():
 
 
 def log(message):
-    print(message)
+    pprint(message)
     sys.stdout.flush()
 
 
