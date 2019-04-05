@@ -29,42 +29,45 @@ def webhook():
     log(data)
 
     # Necessary Code that extract json data facebook send
-    if data['object'] == 'page':
+    if data['object'] == ['page']:
         for entry in data['entry']:
             for messaging_event in entry['messaging']:
 
+    # if data['object'] == 'page':
+    #     for entry in data['entry']:
+    #         for messaging_event in entry['messaging']:
+    #
                 # IDs
                 sender_id = messaging_event['sender']['id']
                 recipient_id = messaging_event['recipient']['id']
 
                 if messaging_event.get('message'):
+                    # Extracting text message
                     if 'text' in messaging_event['message']:
                         messaging_text = messaging_event['message']['text']
                     else:
-                        messaging_text = 'No text'
+                        messaging_text = 'no text'
 
-                response = messaging_text
-                bot.send_text_message(sender_id, response)
+                    # Echo Bot
+                    response = messaging_text
+                    bot.send_text_message(sender_id, response)
+
+
+
                 # sender_id = messaging_event['sender']['id']
                 # recipient_id = messaging_event['recipient']['id']
                 #
                 # if messaging_event.get('message'):
-                #     # Extracting text message
                 #     if 'text' in messaging_event['message']:
                 #         messaging_text = messaging_event['message']['text']
                 #     else:
-                #         messaging_text = 'no text'
+                #         messaging_text = 'No text'
                 #
-                #     # Echo Bot
-                #     response = messaging_text
-                #     bot.send_text_message(sender_id, response)
+                # response = messaging_text
+                # bot.send_text_message(sender_id, response)
+
 
     return "ok", 200
-
-
-
-
-
 
 
 def log(message):
