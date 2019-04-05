@@ -29,14 +29,14 @@ def webhook():
     log(data)
 
     # Necessary Code that extract json data facebook send
-    if data['object'] == ['page']:
+    # if data['object'] == ['page']:
+    #     for entry in data['entry']:
+    #         for messaging_event in entry['messaging']:
+
+    if data['object'] == 'page':
         for entry in data['entry']:
             for messaging_event in entry['messaging']:
 
-    # if data['object'] == 'page':
-    #     for entry in data['entry']:
-    #         for messaging_event in entry['messaging']:
-    #
                 # IDs
                 sender_id = messaging_event['sender']['id']
                 recipient_id = messaging_event['recipient']['id']
